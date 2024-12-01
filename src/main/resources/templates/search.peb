@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Foods</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Search for Foods</h1>
+    </header>
+
+    <main>
+        <section>
+            <form method="GET" action="/search">
+                <label for="searchQuery">Search: </label>
+                <input type="text" id="searchQuery" name="q" value="{{ query }}" />
+                <input type="submit" value="Search" />
+            </form>
+        </section>
+
+        <section>
+            <h2>Search Results</h2>
+            <ul>
+                {% for food in results %}
+                    <li>
+                        <a href="/food/{{ food.id }}">{{ food.name }}</a>
+                    </li>
+                {% else %}
+                    <li>No results found for "{{ query }}"</li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Nutrition Facts. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ food.name }} - Nutrition Details</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <h1>{{ food.name }}</h1>
+        <p>Category: <a href="/cat/{{ food.category | url_encode('UTF-8') }}">{{ food.category }}</a></p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Nutritional Information</h2>
+            <ul>
+                <li>Carbohydrates: {{ food.carbohydrates }} g</li>
+                <li>Lipids: {{ food.lipids }} g</li>
+                <li>Proteins: {{ food.proteins }} g</li>
+                <li>Energy: {{ food.computeEnergy() }} kcal</li>
+            </ul>
+        </section>
+        <nav>
+            <a href="/">Back to Home</a> |
+            <a href="/cat/{{ food.category | url_encode('UTF-8') }}">Back to Category</a> |
+            <a href="https://www.google.com/search?q={{ food.name | url_encode('UTF-8') }}" target="_blank">Search Online</a>
+        </nav>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Nutrition Facts. All rights reserved.</p>
+    </footer>
+</body>
+</html>

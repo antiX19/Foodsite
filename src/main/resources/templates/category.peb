@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foods in {{ category }}</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Foods in Category: {{ category }}</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Food List</h2>
+            <ul>
+                {% for food in foods %}
+                    <li>
+                        <a href="/food/{{ food.id }}">{{ food.name }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+        <nav>
+            <a href="/">Back to Home</a>
+        </nav>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Nutrition Facts. All rights reserved.</p>
+    </footer>
+</body>
+</html>

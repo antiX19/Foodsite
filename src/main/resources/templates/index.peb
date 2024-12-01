@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Facts Homepage</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Nutrition Facts Site</h1>
+        <img src="/static/images/banner.jpg" alt="Nutrition Banner" style="width:100%; height:auto;">
+    </header>
+
+    <main>
+        <section>
+            <h2>Food Categories</h2>
+            <ol>
+                {% for category in categories %}
+                    <li><a href="/cat/{{ category | url_encode('UTF-8') }}">{{ category }}</a></li>
+                {% endfor %}
+            </ol>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Nutrition Facts. All rights reserved.</p>
+    </footer>
+</body>
+</html>
